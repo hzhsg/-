@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>首页</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="static/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/icofont.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="stylesheet" id="theme-change" type="text/css" href="">
+
+	<link rel="stylesheet" href="static/css/calender.css">
+    <link rel="stylesheet" type="text/css" href="static/css/theme.css">
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<div class="loader">
+	  <div class="spinner">
+		<img src="static/picture/loader.gif" alt="">
+	  </div> 
+	</div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+        <header class="header-wrapper main-header">
+            <div class="header-inner-wrapper">
+                <div class="logo-wrapper">
+                    <a href="" class="admin-logo">
+                        <img src="static/picture/logo0.png" alt="">
+                    </a>
+                </div>
+                <div class="header-right">
+                    <div class="serch-wrapper">
+                        <form>
+                            <input type="text" placeholder="Search Here...">
+                        </form>
+                        <a class="search-close" href="javascript:void(0);"><span class="icofont-close-line"></span></a>
+                    </div>
+                    <div class="header-left">
+                        <div class="header-links">
+                            <a href="javascript:void(0);" class="toggle-btn">
+                                <span></span>
+                            </a>
+                        </div>
+                        <h4 id="badsoup">loading...</h4>
+                    </div>
+                    <div class="header-controls">
+                        <div class="user-info-wrapper header-links">
+                            <a href="javascript:void(0);" class="user-info">
+                                <img src="static/picture/trump.webp" alt="" class="user-img">
+                            </a>
+                            <div class="user-info-box">
+                                <div class="drop-down-header">
+                                    <h4 th:text="${name}">huzhihang</h4>
+                                    <p>教师</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="profile">
+                                            <i class="far fa-edit"></i> 个人信息
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form action="doLogout" method="post">
+                                            <button type="submit">
+                                                <i class="fas fa-sign-out-alt"></i> logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Sidebar Start -->
+        <aside class="sidebar-wrapper">
+            <div class="side-menu-wrap">
+                <ul class="main-menu">
+                    <li>
+                        <a href="/" class="active">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            </span>
+                            <span class="menu-text">
+                                首页
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </span>
+                            <span class="menu-text">
+                                课程
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="assignment">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </span>
+                            <span class="menu-text">
+                                作业
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="notification">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </span>
+                            <span class="menu-text">
+                                通知
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <!-- Page Title Start -->
+                <div class="row">
+                    <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-box">
+                                <h4 class="page-title bold">首页</h4>
+                            </div>
+                            <div class="breadcrumb-list">
+                                <ul>
+                                    <li class="breadcrumb-link">
+                                        <a href="/"><i class="fas fa-home mr-2"></i>控制台</a>
+                                    </li>
+                                    <li class="breadcrumb-link active">教师</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Start -->
+                <div class="row">
+                    <!-- Start Card-->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card ad-info-card">
+                            <div class="card-body dd-flex align-items-center">
+                                <div class="icon-info">
+                                    <svg t="1731146669355" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="19666" width="200" height="200"><path d="M88.436364 875.054545h847.127272a60.509091 60.509091 0 1 1 0 121.018182H88.436364a60.509091 60.509091 0 1 1 0-121.018182z m605.090909-242.036363h242.036363a60.509091 60.509091 0 1 1 0 121.018182h-242.036363a60.509091 60.509091 0 1 1 0-121.018182z m11.962182-586.333091l90.298181 90.344727a63.767273 63.767273 0 0 1 0 90.344727l-45.149091 45.195637-180.689454-180.689455 45.149091-45.195636a63.767273 63.767273 0 0 1 90.391273 0z m-180.736 90.344727l180.736 180.736-451.677091 451.630546-180.689455-180.736 451.770182-451.630546h-0.139636zM27.927273 633.856L208.663273 814.545455H27.927273v-180.689455z" fill="#BABEC2" p-id="19667"></path></svg>
+                                </div>
+                                <div class="icon-info-text">
+                                    <h5 class="ad-title">已创建的课程</h5>
+                                    <h4 th:text="${courseNum}" class="ad-card-title">4</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Start Card-->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card ad-info-card">
+                            <div class="card-body dd-flex align-items-center">
+                                <div class="icon-info">
+                                    <svg t="1731146704160" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23568" width="200" height="200"><path d="M412.032 902.144c-8.192 0-16.384-3.328-22.272-9.984-77.44-86.656-202.496-87.552-205.184-87.552h-0.128c-16.384 0-29.696-13.184-29.824-29.568-0.128-16.384 13.056-29.824 29.44-29.952 6.144-0.384 153.984-0.128 250.112 107.392 11.008 12.288 9.856 31.104-2.432 41.984-5.504 5.12-12.672 7.68-19.712 7.68z m199.552-0.128c-7.296 0-14.464-2.56-20.224-7.936-12.032-11.136-12.8-29.952-1.664-41.984C689.152 744.704 833.92 744.832 839.68 745.088c16.512 0.128 29.696 13.568 29.44 30.08-0.128 16.384-13.44 29.44-29.696 29.44h-0.256c-2.432 0-125.056 0.768-205.824 87.936-5.76 6.272-13.824 9.472-21.76 9.472z m-52.48-151.296h-94.336c-2.944 0-5.888-0.384-8.704-1.28-100.608-12.928-186.24-71.296-241.28-164.992-64-108.8-78.72-249.728-36.48-350.72 4.608-10.88 15.104-18.048 26.88-18.304l8.96-0.128c56.704 0 109.568 10.752 157.824 31.872 34.816-63.616 74.496-111.872 118.4-143.872 2.304-2.048 4.992-3.712 7.936-4.992 9.216-3.968 19.84-3.072 28.288 2.304 1.408 0.896 2.816 2.048 4.096 3.2 43.904 32.256 82.56 79.872 117.632 144.768 49.152-22.144 103.296-33.408 161.408-33.408l9.088 0.128c11.776 0.256 22.272 7.424 26.88 18.304 42.24 100.992 27.52 241.92-36.48 350.72-55.168 93.568-140.672 152.064-241.28 164.992-2.816 0.896-5.76 1.408-8.832 1.408zM511.744 928c-16.384 0-29.696-13.312-29.696-29.696V720.896c0-16.512 13.312-29.696 29.696-29.696s29.696 13.312 29.696 29.696v177.28c0 16.512-13.312 29.824-29.696 29.824z m0 0" p-id="23569"></path></svg>
+                                </div>
+                                <div class="icon-info-text">
+
+                                    <h5 class="ad-title">已发布的作业</h5>
+                                    <h4 th:text="${assignmentNum}" class="ad-card-title">10</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <iframe height="500" src="assignment.html"></iframe> -->
+
+                <!-- Products view Start -->
+				<div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card table-card">
+                            <div class="card-body">
+                                <div class="calendar-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-footer-btm">
+                    <p>Copyright &copy; 2024. SE project All rights reserved.</p>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Start -->
+	<script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/swiper.min.js"></script>
+    <script src="static/js/apexcharts.min.js"></script>
+    <script src="static/js/control-chart-apexcharts.js"></script>
+	<!-- Page Specific -->
+    <script src="static/js/nice-select.min.js"></script>
+    <!-- Custom Script -->
+    <script src="static/js/custom.js"></script>
+
+    <script src="static/js/calendar.min.js"></script>
+	<script>
+		function selectDate(date) {
+		  $('.calendar-wrapper').updateCalendarOptions({
+			date: date
+		  });
+		}
+
+		var defaultConfig = {
+		  weekDayLength: 1,
+		  date: new Date(),
+		  onClickDate: selectDate,
+		  showYearDropdown: true,
+		  startOnMonday: true,
+		};
+
+		$('.calendar-wrapper').calendar(defaultConfig);
+	</script>
+
+    <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://www.7ed.net/soup/api');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var data = JSON.parse(xhr.responseText);
+        var badsoup = document.getElementById('badsoup');
+        badsoup.innerText = data.badsoup;
+      }
+    }
+    xhr.send();
+    </script>
+</body>
+
+</html>
+
+<script>
+    function doLogout(){
+        axio.post('/doLogout',{},{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then(()=> {
+            // 注销后跳转到登录页面
+            window.location.href = '/login';
+        });
+    }
+</script>

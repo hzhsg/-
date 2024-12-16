@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+  <!--<![endif]-->
+  <!-- Begin Head -->
+  <head>
+    <title>课程</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="static/css/fonts.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="static/css/icofont.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" id="theme-change" type="text/css" href="" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+      <!-- Header Start -->
+      <header class="header-wrapper main-header">
+        <div class="header-inner-wrapper">
+          <div class="logo-wrapper">
+            <a href="" class="admin-logo">
+              <img src="static/picture/logo0.png" alt="">
+            </a>
+          </div>
+          <div class="header-right">
+            <div class="serch-wrapper">
+              <form>
+                <input type="text" placeholder="Search Here...">
+              </form>
+              <a class="search-close" href="javascript:void(0);"><span class="icofont-close-line"></span></a>
+            </div>
+            <div class="header-left">
+              <div class="header-links">
+                <a href="javascript:void(0);" class="toggle-btn">
+                  <span></span>
+                </a>
+              </div>
+            </div>
+            <div class="header-controls">
+
+              <div class="user-info-wrapper header-links">
+                <a href="javascript:void(0);" class="user-info">
+                  <img src="static/picture/image.jpg" alt="" class="user-img"/>
+                </a>
+                <div class="user-info-box">
+                  <div class="drop-down-header">
+                    <h4 th:text="${name}">huzhihang</h4>
+                    <p>教师</p>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="profile">
+                        <i class="far fa-edit"></i> 个人信息
+                      </a>
+                    </li>
+                    <li>
+                      <form action="doLogout" method="post">
+                        <button type="submit">
+                          <i class="fas fa-sign-out-alt"></i> logout
+                        </button>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Sidebar Start -->
+      <aside class="sidebar-wrapper">
+        <div class="side-menu-wrap">
+          <ul class="main-menu">
+            <li>
+              <a href="/" class="active">
+                <span class="icon-menu feather-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-home"
+                  >
+                    <path
+                      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">首页</span>
+              </a>
+            </li>
+            <li>
+              <a href="course">
+                <span class="icon-menu feather-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-users"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </span>
+                <span class="menu-text">课程</span>
+              </a>
+            </li>
+            <li>
+              <a href="assignment">
+                <span class="icon-menu feather-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-layers"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="22 17 12 22 2 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">作业</span>
+              </a>
+            </li>
+            <li>
+              <a href="notification">
+                <span class="icon-menu feather-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-mail"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </span>
+                <span class="menu-text">通知</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Container Start -->
+      <div class="page-wrapper">
+        <div class="main-content">
+          <!-- Page Title Start -->
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="page-title-wrapper">
+                <div class="page-title-box ad-title-box-use">
+                  <h4 class="page-title bold">课程</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Table Start -->
+          <div class="row">
+            <!-- Styled Table Card-->
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="card table-card">
+                <ul>
+                  <li class="container-grid">
+                    <div class="card-header pb-0">
+                      <h4>课程列表</h4>
+                    </div>
+                    <div class="add-group">
+                      <a class="ad-btn" data-toggle="modal" data-target="#addCourseModal">添加课程</a>
+                    </div>
+                  </li>
+                </ul>
+                <style>
+                  .container-grid {
+                    display: grid;
+                    grid-template-columns: 1fr auto; /* 定义两列，第一列为1fr（flex fraction），第二列为自动大小 */
+                    align-items: center; /* 垂直居中 */
+                  }
+                  .add-group {
+                    text-align: right; /* 文本右对齐 */
+                  }
+                </style>
+                <div class="card-body">
+                  <div class="chart-holder">
+                    <div class="table-responsive">
+                      <table class="table table-styled mb-0">
+                        <thead>
+                          <tr>
+                            <th>课程号</th>
+                            <th>课程名</th>
+                            <th>创建日期</th>
+                            <th>选课截止日期</th>
+                            <th>查看详情</th>
+                            <th>编辑课程</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="course:${course_list}" th:data-course-id="${course.getCourse_id()}">
+                            <td th:text="${course.getCourse_id()}"></td>
+                            <td th:text="${course.getCourse_name()}"></td>
+                            <td th:text="${#dates.format(course.getCreated_time(), 'yyyy/MM/dd HH:mm')}"></td>
+                            <td th:text="${#dates.format(course.getDeadline(), 'yyyy/MM/dd HH:mm')}"></td>
+                            <td>
+                              <a href="javascript:void(0);" onclick="goToCourseDetail(this.closest('tr').dataset.courseId)" class="badge badge-primary">查看详情</a>
+                            </td>
+
+                            <td class="relative">
+                              <a class="action-btn" href="javascript:void(0);">
+                                <svg
+                                  class="default-size"
+                                  viewBox="0 0 341.333 341.333"
+                                >
+                                  <g>
+                                    <g>
+                                      <path
+                                        d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "
+                                      ></path>
+                                      <path
+                                        d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "
+                                      ></path>
+                                      <path
+                                        d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "
+                                      ></path>
+                                    </g>
+                                  </g>
+                                </svg>
+                              </a>
+                              <div class="action-option">
+                                <ul>
+                                  <li>
+                                    <a href="javascript:void(0);" onclick="getCourse(this.closest('tr').dataset.courseId)">
+                                      <i class="far fa-edit mr-2"></i>Edit
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="javascript:void(0);" onclick="deleteCourse(this.closest('tr').dataset.courseId)">
+                                      <i class="far fa-trash-alt mr-2"></i>Delete
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- Additional rows omitted for brevity -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 添加课程模态框 -->
+    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addCourseModalLabel">添加新课程</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="courseName">课程名称</label>
+                <input type="text" class="form-control" id="courseName" placeholder="输入课程名称" required>
+              </div>
+              <div class="form-group">
+                <label for="courseDescription">课程描述</label>
+                <textarea class="form-control" id="courseDescription" rows="3" placeholder="输入课程描述"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="courseDeadline">截止时间</label>
+                <input type="datetime-local" class="form-control" id="courseDeadline" placeholder="选择截止时间" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            <button onclick="addCourse()" type="button" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 编辑课程模态框 -->
+    <div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editCourseModalLabel">编辑课程</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="editCourseName">课程名称</label>
+                <input type="text" class="form-control" id="editCourseName" placeholder="输入课程名称" required>
+              </div>
+              <div class="form-group">
+                <label for="editCourseDescription">课程描述</label>
+                <textarea class="form-control" id="editCourseDescription" rows="3" placeholder="输入课程描述"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="editCourseDeadline">截止时间</label>
+                <input type="datetime-local" class="form-control" id="editCourseDeadline" placeholder="选择截止时间" required>
+              </div>
+              <input type="hidden" id="editCourseId">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            <button onclick="editCourse()" type="button" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script Start -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/custom.js"></script>
+  </body>
+</html>
+
+<script>
+  function getCourse(courseId) {
+    // 使用axios向后端发送请求，获取课程数据
+    axios.post('/getCourse',{
+      course_id:courseId
+    },{
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }).then(({data})=> {
+      var deadline = data.deadline;
+      // 移除毫秒和时区信息，只保留日期和时间部分
+      deadline = deadline.slice(0,16);
+
+      // 填充模态框数据
+      document.getElementById('editCourseName').value = data.course_name;
+      document.getElementById('editCourseDescription').value = data.description;
+      document.getElementById('editCourseDeadline').value = deadline;
+      document.getElementById('editCourseId').value = data.course_id;
+
+      // 显示模态框
+      $('#editCourseModal').modal('show');
+    })
+  }
+
+
+  function addCourse() {
+    axios.post('/addCourse',{
+      courseName:document.getElementById('courseName').value,
+      courseDescription:document.getElementById('courseDescription').value,
+      courseDeadline:document.getElementById('courseDeadline').value
+    },{
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded'
+      }
+    }).then(({data})=>{
+      alert(data);
+      if(data==='添加课程成功'){
+        $('#addCourseModal').modal('hide');
+        window.location.reload();
+      }
+    })
+  }
+
+  function editCourse() {
+    axios.post('/editCourse',{
+      courseId:document.getElementById('editCourseId').value,
+      courseName:document.getElementById('editCourseName').value,
+      courseDescription:document.getElementById('editCourseDescription').value,
+      courseDeadline:document.getElementById('editCourseDeadline').value
+    },{
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded'
+      }
+    }).then(({data})=>{
+      alert(data);
+      if(data==='编辑课程成功'){
+        $('#editCourseModal').modal('hide');
+        window.location.reload();
+      }
+    })
+  }
+
+  function deleteCourse(courseId) {
+    // 弹出确认框询问用户是否确定删除
+    const isConfirmed = confirm("您确定要删除这门课程吗？");
+
+    if (isConfirmed) {
+      axios.post('/deleteCourse', {
+        courseId: courseId
+      }, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }).then(({data}) => {
+        alert(data);
+        if(data==='已删除课程'){
+          window.location.reload();
+        }
+      })
+    }
+  }
+
+  function goToCourseDetail(courseId){
+    axios.post('/goToCourseDetail',{
+      courseId:courseId
+    }, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }).then(({data})=> {
+      if (data === "success") {
+        // 如果是，则跳转到登录页面
+        window.location.href = '/course_detail';
+      } else {
+        alert("未接收到课程号，请稍后再试");
+      }
+    })
+  }
+</script>

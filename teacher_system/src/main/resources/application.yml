@@ -1,0 +1,16 @@
+server:
+  port: 8083
+spring:
+  mail:
+    host: smtp.163.com
+    username: 13626658674@163.com
+    password: XYAAOZYSBWYHVIYK
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/assignment_system
+    username: root
+    password: hu3310022004
+
+
